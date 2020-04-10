@@ -1,24 +1,14 @@
-# cstp
+# Campus Second-hand Trading Platform
+* This is the front end of the cstp based on Vue.js
+* [Main repository](https://github.com/st01tyy/cstp)
 
-## Project setup
-```
-npm install
-```
+## Tools & Dependencies
+* Vue CLI
+* Vue.js
+* Vue Router
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## Editor
+Intellij IDEA
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## Author
+Ruben Tao from BISTU
