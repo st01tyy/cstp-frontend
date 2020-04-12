@@ -11,7 +11,8 @@
                 </el-col>
                 <el-col :span="3">
                     <!-- 登录状态 -->
-                    <login_false v-show="username.length == 0"></login_false>
+                    <login_false v-show="username.length == 0" />
+                    <login_true v-show="username.length > 0" v-bind:username="username" v-bind:logout="logout"/>
                 </el-col>
             </el-row>
         </el-header>
@@ -21,18 +22,31 @@
 <script>
     import logo from "../assets/logo.png"
     import login_false from "./header/login_false";
+    import login_true from "./header/login_true";
     export default {
         name: "Header",
         components:{
-            login_false
+            login_false, login_true
         },
         data: function () {
             return {
                 logoInfo: {
                     fit: 'fill',
                     url: logo
-                },
-                username: ''
+                }
+            }
+        },
+        props:{
+            username: String
+        },
+        methods:{
+            logout: function(){
+                let that = this
+                that.$axios.post('http://localhost:8088/data/logout').then(function(){
+                    that.username = ''
+                }).catch(function (response) {
+                    console.log(response)
+                })
             }
         }
     }
