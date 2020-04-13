@@ -1,7 +1,7 @@
 <template>
     <div>
         <el-button type="success" @click="jumpToLogin">登录</el-button>
-        <el-button type="warning">注册</el-button>
+        <el-button type="warning" @click="jumpToRegister">注册</el-button>
     </div>
 </template>
 
@@ -11,6 +11,9 @@
         methods:{
             jumpToLogin: function () {
                 this.$router.push('/login')
+            },
+            jumpToRegister: function () {
+                this.$router.push('/register')
             }
         }
     }
