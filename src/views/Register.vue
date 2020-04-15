@@ -15,7 +15,7 @@
                         <el-input maxlength="16" show-password placeholder="请再次输入密码" v-model="registerForm.pw2"/>
                     </el-form-item>
                     <el-form-item>
-                        <el-button @click="register('registerForm')">登录</el-button>
+                        <el-button @click="register('registerForm')">注册</el-button>
                     </el-form-item>
                 </el-form>
                 <el-alert v-show="registerResult.length > 0" v-bind:title="registerResult" type="error" @close="registerResult = ''"/>

@@ -6,9 +6,16 @@
                 <el-col :span="1">
                     <el-avatar shape="square" :size="50" :fit="logoInfo.fit" style="margin-top: 5px;" :src="logoInfo.url"/>
                 </el-col>
-                <el-col :span="20">
+                <el-col :span="6">
                     <p class="title" style="display: inline">校园二手交易平台</p>
                 </el-col>
+                <el-col :span="4">
+                    <el-input clearable="true" v-model="query" />
+                </el-col>
+                <el-col :span="1">
+                    <el-button icon="el-icon-search" type="info">搜索商品</el-button>
+                </el-col>
+                <el-col :span="9"><p/></el-col>
                 <el-col :span="3">
                     <!-- 登录状态 -->
                     <login_false v-show="username.length == 0" />
@@ -37,13 +44,16 @@
             }
         },
         props:{
-            username: String
+            username: String,
+            query: String
         },
         methods:{
             logout: function(){
                 let that = this
+                that.username = ''
+                location.reload()
                 that.$axios.post('http://localhost:8088/data/logout').then(function(){
-                    that.username = ''
+                    /*nothing*/
                 }).catch(function (response) {
                     console.log(response)
                 })
