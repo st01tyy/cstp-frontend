@@ -5,8 +5,8 @@
         <el-row>
             <el-col :span="8"><p/></el-col>
             <el-col :span="8">
-                <GoodsForm v-bind:goodsForm="goodsForm"/>
-                <div style="text-align: center"><el-button type="primary">添加新商品</el-button></div>
+                <GoodsForm v-bind:goodsForm="goodsForm" v-bind:submit-button-msg="msg" v-bind:submit="submit"/>
+                <div style="text-align: center"><el-alert v-show="showAlert" title="添加失败，请重试" type="error" @close="onAlertClosed"/></div>
             </el-col>
             <el-col :span="8"><p/></el-col>
         </el-row>
@@ -23,11 +23,14 @@
             return{
                 username: '',
                 goodsForm: {
+                    gid: null,
                     title: '',
                     detail: '',
                     price: 100.00,
-                    amount: 1,
-                }
+                    amount: 1
+                },
+                msg: '添加新商品',
+                showAlert: false
             }
         },
         mounted() {
@@ -48,7 +51,28 @@
                     }
                 }).catch(function(response){
                     console.log(response)
+                    that.$router.push('/')
                 })
+            },
+            submit: function () {
+                let that = this
+                that.$axios.post('http://localhost:8088/data/new_goods', {
+                    gid: that.goodsForm.gid,
+                    title: that.goodsForm.title,
+                    detail: that.goodsForm.detail,
+                    price: that.goodsForm.price,
+                    amount: that.goodsForm.amount
+                }).then(function (response) {
+                    let res = response.data.gid
+                    if(res == null){
+                        that.showAlert = true
+                    }else{
+                        that.$router.push('/user_center')
+                    }
+                })
+            },
+            onAlertClosed: function () {
+                this.showAlert = false
             }
         }
     }
