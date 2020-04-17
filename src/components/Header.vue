@@ -10,7 +10,7 @@
                     <p class="title" style="display: inline">校园二手交易平台</p>
                 </el-col>
                 <el-col :span="4">
-                    <el-input clearable="true" v-model="query" />
+                    <el-input :clearable=true v-model="query" />
                 </el-col>
                 <el-col :span="1">
                     <el-button icon="el-icon-search" type="info">搜索商品</el-button>
