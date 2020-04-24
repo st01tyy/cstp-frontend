@@ -6,6 +6,7 @@ import Register from "../views/Register";
 import UserCenter from "../views/UserCenter";
 import NewGoods from "../views/NewGoods";
 import EditGoods from "../views/EditGoods";
+import GoodsDisplay from "../views/GoodsDisplay";
 
 Vue.use(VueRouter)
 
@@ -36,9 +37,14 @@ Vue.use(VueRouter)
       component: NewGoods
     },
     {
-      path: '/edit_goods:goodsInfo',
+      path: '/edit_goods/:goodsInfo',
       name: 'EditGoods',
       component: EditGoods
+    },
+    {
+      path: '/goods_display/:id',
+      name: 'GoodsDisplay',
+      component: GoodsDisplay
     }
 ]
 
