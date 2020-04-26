@@ -35,6 +35,7 @@
                     that.username = username
                 }).catch(function(response){
                     console.log(response)
+                    that.$router.push('/')
                 })
             }
         }

@@ -10,7 +10,7 @@
            <el-input-number v-model="goodsForm.price" :precision="2" :step="0.01" :min="0" :max="10000000" />
        </el-form-item>
        <el-form-item label="商品数量" prop="amount">
-           <el-input-number v-model="goodsForm.amount" :step="1" :min="1" :max="100000000" />
+           <el-input-number v-model="goodsForm.amount" :step="1" :min="0" :max="100000000" />
        </el-form-item>
        <el-form-item>
            <el-button type="primary" @click="onButtonClicked('goodsForm')">{{submitButtonMsg}}</el-button>

@@ -35,6 +35,7 @@
             }
         },
         mounted() {
+            this.goodsForm.gid = this.$route.params.id
             this.initialize()
         },
         methods:{
@@ -49,11 +50,21 @@
                     else {
                         console.log(username + '已登录')
                         that.username = username
-                        that.goodsForm = that.$route.params.goodsInfo
+                        that.fetchData()
                     }
                 }).catch(function(response){
                     console.log(response)
-                    that.$router.push('/')
+                    //that.$router.push('/')
+                })
+            },
+            fetchData: function(){
+                let that = this
+                let url = 'http://localhost:8088/data/get_goods?gid=' + that.goodsForm.gid
+                that.$axios.get(url).then(function(response){
+                    let goodsInfo = response.data
+                    that.goodsForm = goodsInfo
+                }).catch(function(response){
+                    console.log(response)
                 })
             },
             submit: function () {

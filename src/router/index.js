@@ -37,7 +37,7 @@ Vue.use(VueRouter)
       component: NewGoods
     },
     {
-      path: '/edit_goods/:goodsInfo',
+      path: '/edit_goods/:id',
       name: 'EditGoods',
       component: EditGoods
     },

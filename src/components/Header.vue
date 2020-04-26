@@ -7,7 +7,7 @@
                     <el-avatar shape="square" :size="50" :fit="logoInfo.fit" style="margin-top: 5px;" :src="logoInfo.url"/>
                 </el-col>
                 <el-col :span="6">
-                    <p class="title" style="display: inline">校园二手交易平台</p>
+                    <router-link class="title" style="display: inline" to="/">校园二手交易平台</router-link>
                 </el-col>
                 <el-col :span="4">
                     <el-input :clearable=true v-model="query" />
@@ -72,5 +72,11 @@
         font-color: #303133;
         font-size: 20px;
         font-weight: bold;
+    }
+    a{
+        text-decoration: none;
+    }
+    .router-link-active{
+        text-decoration: none;
     }
 </style>

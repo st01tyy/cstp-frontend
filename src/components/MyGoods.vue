@@ -49,14 +49,7 @@
                 this.$router.push('/new_goods')
             },
             handleClick: function(row){
-                let goodsInfo = {
-                    gid: row.gid,
-                    title: row.title,
-                    detail: row.detail,
-                    price: row.price,
-                    amount: row.amount
-                }
-                this.$router.push({name: 'EditGoods', params: {goodsInfo: goodsInfo}})
+                this.$router.push({name: 'EditGoods', params: {id: row.gid}})
             }
         }
     }
