@@ -9,12 +9,15 @@
                 </el-col>
                 <el-col :span="18">
                     <br>
-                    <el-tabs value="my_goods">
+                    <el-tabs value="my_orders">
                         <el-tab-pane label="我的订单" name="my_orders">
                             <MyOrder />
                         </el-tab-pane>
                         <el-tab-pane label="我的商品" name="my_goods">
                             <MyGoods v-bind:username="username" />
+                        </el-tab-pane>
+                        <el-tab-pane label="我的商品订单" name="my_goods_orders">
+                            <MyGoodsOrder />
                         </el-tab-pane>
                     </el-tabs>
                 </el-col>
@@ -27,12 +30,14 @@
 <script>
     import MyGoods from "./MyGoods";
     import MyOrder from "./MyOrder";
+    import MyGoodsOrder from "./MyGoodsOrder";
     export default {
         name: "UserInformation",
         props:{
             username: String
         },
         components:{
+            MyGoodsOrder,
             MyOrder,
             MyGoods
         }

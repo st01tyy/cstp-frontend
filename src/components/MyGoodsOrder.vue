@@ -16,7 +16,7 @@
 
 <script>
     export default {
-        name: "MyOrder",
+        name: "MyGoodsOrder",
         data: function(){
             return{
                 orderInfo: []
@@ -28,7 +28,7 @@
         methods:{
             fetchData: function() {
                 let that = this
-                that.$axios.get('http://localhost:8088/data/buyer_order').then(function (response) {
+                that.$axios.get('http://localhost:8088/data/owner_order').then(function (response) {
                     let res = response.data
                     if(res != null){
                         that.orderInfo = res

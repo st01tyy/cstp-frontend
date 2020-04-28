@@ -7,6 +7,7 @@ import UserCenter from "../views/UserCenter";
 import NewGoods from "../views/NewGoods";
 import EditGoods from "../views/EditGoods";
 import GoodsDisplay from "../views/GoodsDisplay";
+import OrderDisplay from "../views/OrderDisplay";
 
 Vue.use(VueRouter)
 
@@ -45,6 +46,11 @@ Vue.use(VueRouter)
       path: '/goods_display/:id',
       name: 'GoodsDisplay',
       component: GoodsDisplay
+    },
+    {
+      path: '/order_display/:id',
+      name: 'OrderDisplay',
+      component: OrderDisplay
     }
 ]
 
