@@ -13,7 +13,7 @@
                     <el-input :clearable=true v-model="query" />
                 </el-col>
                 <el-col :span="1">
-                    <el-button icon="el-icon-search" type="info">搜索商品</el-button>
+                    <!--<el-button icon="el-icon-search" type="info">搜索商品</el-button>-->
                 </el-col>
                 <el-col :span="9"><p/></el-col>
                 <el-col :span="3">
