@@ -29,6 +29,7 @@
             fetchData: function() {
                 let that = this
                 that.$axios.get('http://localhost:8088/data/owner_order').then(function (response) {
+                    console.log(response)
                     let res = response.data
                     if(res != null){
                         that.orderInfo = res

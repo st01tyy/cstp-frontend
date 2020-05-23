@@ -3,9 +3,8 @@
         <el-col :span="4"><p/></el-col>
         <el-col :span="16">
             <el-row>
-                <el-col :span="6" >
-                    <p>{{username}}</p>
-                    <el-button>编辑账户信息</el-button>
+                <el-col :span="3" >
+                    <p />
                 </el-col>
                 <el-col :span="18">
                     <br>
@@ -23,7 +22,7 @@
                 </el-col>
             </el-row>
         </el-col>
-        <el-col :span="4"><p/></el-col>
+        <el-col :span="3"><p/></el-col>
     </el-row>
 </template>
 

@@ -34,14 +34,17 @@
             <el-button v-show="isOwner" v-bind:disabled="isDisabled" @click="onButtonClicked">{{buttonMsg}}</el-button>
             <el-alert type="error" title="出错啦！" v-show="showError" @close="showError = false" />
         </div>
+        <OrderComment v-bind:oid="this.$route.params.id" v-bind:is-buyer="isBuyerIgnoreCompletedOrNot"/>
     </div>
 </template>
 
 <script>
     import Header from "../components/Header";
+    import OrderComment from "../components/OrderComment";
     export default {
         name: "OrderDisplay",
         components:{
+            OrderComment,
             Header
         },
         data: function () {
@@ -75,6 +78,13 @@
             isBuyer: function () {
                 if(this.isOrderCompleted)
                     return false
+                if(this.username === this.orderInfo.buyer)
+                    return true
+                else
+                    return false
+            },
+            isBuyerIgnoreCompletedOrNot() {
+                console.log('isBuyerIgnoreCompletedOrNot')
                 if(this.username === this.orderInfo.buyer)
                     return true
                 else
@@ -145,8 +155,11 @@
                     return null
             }
         },
-        mounted() {
+        created() {
             this.initialize()
+        },
+        mounted() {
+
         },
         methods:{
             initialize: function () {
@@ -171,6 +184,7 @@
             fetchData: function () {
                 let that = this
                 let url = 'http://localhost:8088/data/order_display?oid=' + this.oid
+                console.log(url)
                 that.$axios.get(url).then(function (response) {
                     console.log(response)
                     let res = response.data
